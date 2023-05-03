@@ -6,19 +6,7 @@ import java.util.Random;
 
 
 public class Inserción_directa {
-    
-    public static void main(String[] args) {
-        
-        Random rand = new Random();
-        int[] numerosAleatorios = new int[150];
-        for (int i = 0; i < 150; i++) {
-            numerosAleatorios[i] = rand.nextInt(1000); // genera un número aleatorio entre 0 y 999
-        }
-        System.out.println("Números aleatorios generados: " + Arrays.toString(numerosAleatorios));
-        ordenarInsercionIndirecta(numerosAleatorios);
-        System.out.println("Números aleatorios ordenados: " + Arrays.toString(numerosAleatorios));
-    }
-
+   
     public static void ordenarInsercionIndirecta(int[] arreglo) {
         int n = arreglo.length;
         int[] indices = new int[n];
@@ -41,6 +29,12 @@ public class Inserción_directa {
         for (int i = 0; i < n; i++) {
             arreglo[i] = arregloOrdenado[i];
         }
+        System.out.print("Datatos ordenados:[");
+        for(int i=0; i < arreglo.length; i++){
+            System.out.print(arreglo[i]+ ",");
+            
+        }
+        System.out.println("]");
 
     }
     
