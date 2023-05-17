@@ -13,7 +13,12 @@ public class Ackerman {
         return ackermann(m - 1, ackermann(m, n - 1));
     }
 }
-
+    public static void main(String[] args) {
+        int m = 2;
+        int n = 3;
+        int result = ackermann(m, n);
+        System.out.println("El resultado de A(" + m + ", " + n + ") es " + result);
+    }
 }
 
 
