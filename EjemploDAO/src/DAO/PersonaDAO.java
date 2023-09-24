@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package DAO;
+
 import Model1.Persona;
 import java.io.*;
 import java.util.ArrayList;
@@ -14,9 +15,8 @@ import java.util.List;
  * @author Usuario 1
  */
 public class PersonaDAO implements PersonaDAOImp {
-   
 
-    private String archivo = "personas.txt";
+    private String archivo = "C:\\Users\\Usuario 1\\Downloads\\JOSÉ\\Nueva carpeta/personas.txt";
 
     @Override
     public void crear(Persona persona) {
@@ -24,10 +24,14 @@ public class PersonaDAO implements PersonaDAOImp {
 
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(archivo))) {
             personas.add(persona);
-            oos.writeObject(personas);
+            // Escribir cada persona individualmente en el archivo
+            for (Persona p : personas) {
+                oos.writeObject(p);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
     @Override
@@ -81,20 +85,28 @@ public class PersonaDAO implements PersonaDAOImp {
         }
     }
 
-    private List<Persona> listarPersonas() {
-        List<Persona> personas = new ArrayList<>();
+ private List<Persona> listarPersonas() {
+    List<Persona> personas = new ArrayList<>();
 
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(archivo))) {
-            personas = (List<Persona>) ois.readObject();
-        } catch (IOException | ClassNotFoundException e) {
-            // El archivo aún no existe o está vacío, no es un error
+    try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(archivo))) {
+        while (true) {
+            try {
+                Object obj = ois.readObject();
+                if (obj instanceof Persona) {
+                    Persona persona = (Persona) obj;
+                    personas.add(persona);
+                }
+            } catch (EOFException e) {
+                break; // Fin del archivo
+            }
         }
-
-        return personas;
+    } catch (IOException | ClassNotFoundException e) {
+        // El archivo aún no existe o está vacío, no es un error
     }
+
+    return personas;
 }
 
+
    
-
-    
-
+}

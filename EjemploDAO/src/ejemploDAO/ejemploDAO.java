@@ -18,12 +18,12 @@ public class ejemploDAO {
     public static void main(String[] args) {
         
        
-        PersonaDAOImp personaDAO = new PersonaDAO();
+        PersonaDAO personaDAO = new PersonaDAO ();
 
         // Crear una persona
         Persona persona1 = new Persona();
         persona1.setId(1);
-        persona1.setNombre("Nombre1");
+        persona1.setNombre("Jose");
         persona1.setEdad(30);
         personaDAO.crear(persona1);
 
