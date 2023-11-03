@@ -23,11 +23,12 @@ public class Ventana extends JFrame {
     private JPanel pan114;
     private JPanel pan115;
     private JPanel pan116;
-    
+    private JPanel pan117;
     
     private Color color1 = Color.BLACK;
     private Color color3 = Color.red;
     private Color color4 = Color.yellow;
+    private Color color5 = Color.white;
     private Color color2 = new Color(164, 224, 243);
     private Timer timer;
 
@@ -105,7 +106,11 @@ public class Ventana extends JFrame {
         pan116.setBackground(color1);
         pan116.setBounds(380, 100, 20, 60);
         this.add(pan116);
-         timer = new Timer(1000, new ActionListener() {
+        pan117 = new JPanel();
+        pan117.setBackground(color1);
+        pan117.setBounds(140, 160, 20, 20);
+        this.add(pan117);
+         timer = new Timer(1020, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (pan100.getBackground() == color1) {
@@ -116,7 +121,7 @@ public class Ventana extends JFrame {
             }
         });
          timer.start();
-         timer = new Timer(1000, new ActionListener() {
+         timer = new Timer(1030, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (pan101.getBackground() == color1) {
@@ -127,7 +132,7 @@ public class Ventana extends JFrame {
             }
         });
         timer.start();
-        timer = new Timer(1000, new ActionListener() {
+        timer = new Timer(1040, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (pan102.getBackground() == color1) {
@@ -138,7 +143,7 @@ public class Ventana extends JFrame {
             }
         });
         timer.start();
-          timer = new Timer(1000, new ActionListener() {
+          timer = new Timer(1040, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (pan103.getBackground() == color1) {
@@ -149,7 +154,7 @@ public class Ventana extends JFrame {
             }
         });
         timer.start();
-        timer = new Timer(1000, new ActionListener() {
+        timer = new Timer(1050, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (pan104.getBackground() == color1) {
@@ -259,7 +264,7 @@ public class Ventana extends JFrame {
             }
         });
         timer.start();
-        timer = new Timer(1000, new ActionListener() {
+        timer = new Timer(1040, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (pan114.getBackground() == color2) {
@@ -270,7 +275,7 @@ public class Ventana extends JFrame {
             }
         });
         timer.start();
-        timer = new Timer(1000, new ActionListener() {
+        timer = new Timer(1020, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (pan115.getBackground() == color2) {
@@ -281,13 +286,24 @@ public class Ventana extends JFrame {
             }
         });
         timer.start();
-        timer = new Timer(1000, new ActionListener() {
+        timer = new Timer(1020, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (pan116.getBackground() == color2) {
                     pan116.setBackground(color4);
                 } else {
                     pan116.setBackground(color2);
+                }
+            }
+        });
+        timer.start();
+        timer = new Timer(1020, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (pan117.getBackground() == color2) {
+                    pan117.setBackground(color5);
+                } else {
+                    pan117.setBackground(color2);
                 }
             }
         });
